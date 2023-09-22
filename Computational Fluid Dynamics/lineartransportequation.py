@@ -23,7 +23,7 @@ xl = 2                                      # x length
 nx = 600                                    # number of grid points
 x = np.linspace(0,xl,nx)                    # x grid evenly spaced between 0 and 2
 dx = xl/(nx-1)                              # x stepsize
-nt = 500                                    # number of timesteps
+nt = 200                                    # number of timesteps
 dt = 0.0025                                 # time stepsize
 c = 1                                       # wave speed
 g = .01                                     # gaussian variance parameter (peak width)
@@ -86,23 +86,3 @@ print(end-start)
 #    u[nx-1] = u[1]
 
 plt.plot(x,u);
-
-# ... (Previous code)
-
-# CDS with vectorization
-for n in range(nt):
-    un = u.copy()
-    u[1:-1] = un[1:-1] - c*dt/(2*dx)*(un[2:]-un[:-2])
-    # periodic BC's
-    u[0] = u[nx-2]
-    u[nx-1] = u[1]
-
-# Plot the final solution
-plt.figure(figsize=(8, 6))
-plt.plot(x, u, label='Final Solution')
-plt.xlabel('x')
-plt.ylabel('u')
-plt.title('1D Linear Transport Equation')
-plt.grid()
-plt.legend()
-plt.show()
