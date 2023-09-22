@@ -23,7 +23,7 @@ xl = 2                                      # x length
 nx = 600                                    # number of grid points
 x = np.linspace(0,xl,nx)                    # x grid evenly spaced between 0 and 2
 dx = xl/(nx-1)                              # x stepsize
-nt = 200                                    # number of timesteps
+nt = 500                                    # number of timesteps
 dt = 0.0025                                 # time stepsize
 c = 1                                       # wave speed
 g = .01                                     # gaussian variance parameter (peak width)
@@ -86,3 +86,4 @@ print(end-start)
 #    u[nx-1] = u[1]
 
 plt.plot(x,u);
+
